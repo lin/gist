@@ -86,6 +86,8 @@ git config --global user.name "NewUser"
 git config --global user.email newuser@example.com
 ```
 
+=============
+
 8, install your app
 ```
 git clone https://github.com/username/app.git

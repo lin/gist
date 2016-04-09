@@ -1,0 +1,27 @@
+# /etc/nginx/sites-available/default
+upstream app_server {
+ server unix:/tmp/unicorn.yourapp.sock fail_timeout=0;
+}
+
+server {
+  listen 80;
+  server_name yourapp.com;
+  root /var/www/yourapp/public;
+
+  try_files $uri/index.html $uri.html $uri @appname;
+
+  location @appname {
+     proxy_pass http://app_server; # match the name of upstream directive which is defined above
+     proxy_set_header Host $http_host;
+     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+
+  location ~* ^/assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+    add_header Last-Modified "";
+    add_header ETag "";
+    break;
+  }
+}
