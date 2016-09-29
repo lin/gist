@@ -14,9 +14,8 @@ gem install railties
 ```
 mkdir ~/test
 cd ~/test
-rails new testapp
-cd testapp
-sudo chown ubuntu:ubuntu -R /run/user/0
+rails new app
+cd app
 rails g scaffold User name:string
 rake db:migrate
 bundle exec rails server -b 0.0.0.0
