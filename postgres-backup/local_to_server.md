@@ -14,7 +14,6 @@ pg_dump -U ubuntu app_production -f ~/backups/app.sql
 
 ```
 scp -i ~/.ssh/app.pem ~/Downloads/app.sql ubuntu@[ip]:/var/www/db
-scp -i ~/.ssh/xuyuali.pem ~/Downloads/app.sql ubuntu@112.126.86.188:/var/www/db
 ```
 
 3, drop db and create db
