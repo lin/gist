@@ -12,7 +12,7 @@ pg_dump -U ubuntu app_development -f ~/backups/app.sql
 pg_dump -U ubuntu app_production -f ~/backups/app.sql
 ```
 
-2, upload to the server.
+2, download to local.
 
 ```
 scp -i ~/.ssh/app.pem ubuntu@[ip]:~/backups/app.sql ~/Downloads/app.sql
